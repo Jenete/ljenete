@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-seri f;
+      margin: 0;
+      padding: 0;
+      background-color: #f1f1f1;
+    }
+    
+    #profile-container {
+      max-width: 800px;
+      margin: 50px auto;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    #profile-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: block;
+    }
+    
+    #profile-name {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    
+    #profile-description {
+      text-align: center;
+      color: #888;
+      margin-bottom: 20px;
+    }
+    
+    .social-links {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .social-link {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #ddd;
+      text-align: center;
+      line-height: 40px;
+      margin: 0 5px;
+      color: #333;
+      transition: background-color 0.3s;
+    }
+    .social-link i {
+        font-size: 50px;
+        margin: auto;
+    }
+    .social-link:hover {
+      background-color: #bbb;
+    }
+    
+    /* Animated Background */
+    .animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      opacity: 0.3;
+      z-index: -1;
+      animation: animateBg 20s linear infinite;
+    }
+    
+    @keyframes animateBg {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 100% 100%;
+      }
+    }
+    
+    /* Contact Section */
+    #contact-section {
+      background-color: #f9f9f9;
+      padding: 40px;
+      margin-top: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    
+    #contact-heading {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    
+    .contact-info {
+      margin-bottom: 10px;
+    }
+    
+    /* About Section */
+    #about-section {
+      margin-top: 20px;
+      text-align: center;
+    }
+    
+    #about-heading {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    
+    .project-container {
+      display: flex;
+      overflow-x: auto;
+      margin-bottom: 20px;
+    }
+    
+    .project-card {
+      flex: 0 0 auto;
+      width: 300px;
+      margin-right: 20px;
+      padding: 20px;
+      border-radius: 5px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .project-card img {
+      max-width: 100%;
+      height: 300px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    #cover-letter {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+    }
+
+    #cover-letter h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    }
+
+    #cover-letter p {
+    margin-bottom: 10px;
+    }
+
+    #cover-letter a {
+    color: #007bff;
+    text-decoration: none;
+    }
+
+    #cover-letter a:hover {
+    text-decoration: underline;
+    }
+    .cover-letter-section .contact-info {
+        text-align:start;
+    }
+
+    .profile-navigation {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-navigation a {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: rgb(45, 190, 65) 0.3s;
+}
+
+.profile-navigation a:hover {
+  background-color: #555;
+}
+
+    
+    /* Responsive Footer */
+    .footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+        #profile-container {
+            margin: 20px;
+            padding: 10px;
+        }
+
+        #profile-image {
+            width: 100px;
+            height: 100px;
+        }
+
+        #profile-name {
+            font-size: 20px;
+        }
+
+        #profile-description {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .social-link {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            margin: 0 3px;
+        }
+
+        .project-card {
+            flex: 0 0 calc(100% - 20px);
+            width: 100%;
+            margin: 0 10px 20px;
+            padding: 10px;
+        }
+
+        .project-card img {
+            height: 200px;
+        }
+
+        .footer {
+            font-size: 12px;
+        }
+}
+
+  </style>
+</head>
+<body>
+  <div id="profile-container">
+    <img id="profile-image" src="./pic.jpg" alt="Profile Image">
+    <h1 id="profile-name">Lukhaya A. Jenete</h1>
+    <p id="profile-description">Software Developer | Tutor | Pro Math Alumni</p>
+    <div class="social-links">
+      <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+      <a class="social-link" href="https://wa.me/+27735534588"><i class="fab fa-whatsapp"></i></a>
+      <a class="social-link" href="https://www.linkedin.com/in/amahle-jenete-1252a5233/"><i class="fab fa-linkedin"></i></a>
+    </div>
+    
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    <br>
+    <hr>
+    <!-- Navigation -->
+    <div class="profile-navigation">
+        <p>Go to: </p>
+        <a href="#about-section">Who am I</a>
+        <a href="#education-section">Education</a>
+        <a href="#skills-section">Skills</a>
+        <a href="#contact-section">Contact</a>
+        <a href="#projects-section">Projects</a>
+        <a href="https://1drv.ms/b/s!Ajs77XLcMk7CheUxykxi6mP1cMBaHA?e=FAPKbd" target="_blank">View CV</a>
+      </div>
+      <br>
+    <!-- Contact Section -->
+    <div id="contact-section">
+      <h2 id="contact-heading">Contact</h2>
+      <div class="contact-info">
+        <a  href="mailto:amahlejenete@gmail.com"><i class="fas fa-envelope"></i><p>amahlejenete@gmail.com</p></a>
+        <a  href="tel:+27735534588"><i class="fas fa-phone"></i><p>Phone: 0735534588</p></a>
+      
+      </div>
+    </div>
+    <br><br>
+    <!-- About Section -->
+    <div id="about-section">
+      <h2 id="about-heading">About</h2>
+      <div id="cover-letter">
+        <i>Hi there,</i>
+  
+  <p>Welcome to my profile! My name is Lukhaya Amahle Jenete, and I'm thrilled to share my skills and experience with you.</p>
+  <hr>
+  <h3>Recent Activities</h3>
+  <p>Recently, I have been involved in various extra-curricular activities, including programming, alumni work at Kutlwanong Pro Maths Centre, and volunteering as a tutor at Learn Through Science program and STEM HUB Tutoring program.</p>
+  <hr>
+  <h3 id="skills-section">Skills and Experience</h3>
+  <p>With 2 years of experience in mobile development and 3 years in website development, I have honed my abilities to create exceptional digital experiences. I am proficient in frameworks such as Java, Kotlin, Flutter, and Dart, and I have developed desktop applications and mobile apps that have showcased my skills in graphical user interfaces, data science, and machine learning.</p>
+  
+  <p>One of my proud achievements is designing a website for STEM Tutoring, which has consistently attracted over 150 profile views per month since August 2021. Through my expertise in HTML, CSS, and JavaScript, I strive to deliver responsive and visually appealing websites that make a lasting impression.</p>
+  <hr>
+  <h3>Tutoring Experience</h3>
+  <p>Aside from my technical skills, I have 4 years of tutoring experience in information systems and computer science. Working closely with lecturers and teacher assistants, I have assisted in marking, invigilating, and providing guidance to students. I take pride in helping individuals debug their code and offering constructive feedback to foster their growth.</p>
+  <hr>
+  <h3 id="education-section">Education</h3>
+  <p>Currently, I am pursuing a BSc in Computer Science and Computer Engineering at the University of Cape Town, scheduled to graduate this year. My education, coupled with my practical experience, has equipped me with a solid foundation to tackle complex challenges in the field.</p>
+  <hr>
+  <h3>Contact Information</h3>
+  <p>Thank you for taking the time to review my profile and cover letter. Feel free to contact me at:
+    <div class="contact-info"></p>
+        <p>0735534588</p>
+        <p>amahlejenete@gmail.com</p>
+        <p>linkedin: <a href="https://www.linkedin.com/in/amahle-jenete-1252a5233/">amahle-jenete-1252a5233</a></p>
+    </div>
+  
+  <br>
+  <p>Looking forward to connecting with you!</p>
+  
+  <p>Best regards,</p>
+  <p>Lukhaya Amahle Jenete</p>
+      </div>
+
+      <br><br>
+      <h1 id="projects-section">Projects</h1>
+      <div class="project-container">
+        
+        <div class="project-card">
+          <img src="https://e0.pxfuel.com/wallpapers/889/641/desktop-wallpaper-aesthetic-tiktok-aesthetic-profile-pic.jpg" alt="Project 1">
+          <h3 class="project-title">Co-founder of STEM TUTORING</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec dui id risus elementum tristique.</p>
+        </div>
+        <div class="project-card">
+          <img src="https://e0.pxfuel.com/wallpapers/889/641/desktop-wallpaper-aesthetic-tiktok-aesthetic-profile-pic.jpg" alt="Project 2">
+          <h3 class="project-title">Web developer - Site for STEM HUB TUTORING</h3>
+          <p>Etiam convallis est ac neque blandit, eget scelerisque elit cursus. Integer sit amet bibendum dolor.</p>
+        </div>
+        <div class="project-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0sYtZgdyyBEX5S0xIvzXtFQ9z6p-rraY33w&usqp=CAU" alt="Project 3">
+          <h3 class="project-title">Web developer- Site for Evidence Clothing</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec dui id risus elementum tristique.</p>
+        </div>
+        <div class="project-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0sYtZgdyyBEX5S0xIvzXtFQ9z6p-rraY33w&usqp=CAU" alt="Project 4">
+          <h3 class="project-title">Project 4</h3>
+          <p>Etiam convallis est ac neque blandit, eget scelerisque elit cursus. Integer sit amet bibendum dolor.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Responsive Footer -->
+  <footer class="footer">
+    &copy; 2023 Lukhaya Jenete. All rights reserved.
+  </footer>
+
+</body>
+</html>

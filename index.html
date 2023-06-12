@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Details</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  
+  <style>
+    .timer {
+      font-size: 48px;
+      text-align: center;
+      margin-top: 100px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Redirecting you, please wait...</h1>
+  <p id="redirect"></p>
+  <div class="timer"></div>
+
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js"></script>
+  <script type="module" src="dataFase.js"></script>
+  <script>
+    // Timer functionality
+    const timerElement = document.querySelector('.timer');
+    let count = 5;
+
+    const intervalId = setInterval(() => {
+      if (count === 0) {
+        clearInterval(intervalId);
+        timerElement.innerHTML = '<i class="fa fa-spinner fa-spin"></i>'; // Replace with your loading icon HTML
+        document.getElementById("redirect").innerHTML = 'Click here if nothing is happening <a href="./ProfilePage.html">Click</a>';
+      } else {
+        timerElement.textContent = count;
+        count--;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
