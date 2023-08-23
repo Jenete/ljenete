@@ -21,7 +21,13 @@ const firebaseConfig = {
   if (!userDetails) {
     // Get user details
     const name = new Date().getDate();
-    const email = document.referrer;
+    let email = "."
+    try{
+      email = document.referrer;
+    }catch(err){
+      email = err;
+    }
+    
   
     console.log("Previous page: " + email);
   
