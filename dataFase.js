@@ -20,7 +20,7 @@ const firebaseConfig = {
   
   if (!userDetails) {
     // Get user details
-    const name = "Device 0";
+    const name = new Date().getDate();
     const email = document.referrer;
   
     console.log("Previous page: " + email);
