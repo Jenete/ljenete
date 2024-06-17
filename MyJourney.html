@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amahle Lukhaya Jenete's Journey</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://via.placeholder.com/150" alt="Amahle Lukhaya Jenete" class="profile-img">
+            <h1>Amahle Lukhaya Jenete</h1>
+            <p>Cape Town, WC | +27735534588 | <a href="mailto:amahlejenete@gmail.com">amahlejenete@gmail.com</a></p>
+        </header>
+        <main>
+            <section class="story">
+                <h2>The Journey of Amahle Lukhaya Jenete: A Tale of Innovation and Inspiration</h2>
+                <img src="https://via.placeholder.com/800x300" alt="Cape Town" class="story-img">
+                <p id="paragraph1">In the bustling city of Cape Town, a young visionary named Amahle Lukhaya Jenete was quietly but determinedly charting a path toward technological excellence. From his earliest days, Amahle displayed a rare blend of curiosity and brilliance, a combination that would set him on a remarkable journey through the realms of computer science and engineering.</p>
+                <img src="https://via.placeholder.com/800x300" alt="University of Cape Town" class="story-img">
+                <p id="paragraph2">Amahle’s story began with a passion for understanding how things worked, a trait that led him to the University of Cape Town. Here, he pursued a double major in Computer Science and Computer Engineering, fields that allowed him to delve into the intricacies of programming, algorithms, and data structures. Amahle's academic journey was marked by exceptional achievements, including ranking as the top achiever in his school and earning prestigious bursaries from Dell and Investec.</p>
+                <p id="paragraph3">During his time at UCT, Amahle's commitment to fostering collaborative learning environments became evident. As a tutor in both the Computer Science and Information Systems departments, he provided tailored academic support to students, helping them navigate complex topics and improve their coding skills. His ability to analyze student progress and offer constructive feedback not only enhanced their academic performance but also instilled in them a passion for technology.</p>
+                <p id="paragraph4">In early 2024, Amahle embarked on an internship at LexisNexis Legal, a leading provider of legal technology solutions. Here, he joined an innovative team dedicated to developing Lexis+ AI, a cutting-edge platform that leverages advanced technologies to revolutionize the legal industry. Amahle’s expertise in web technologies, mobile app development, and database management proved invaluable as he contributed to the project using Angular for front-end development, C# for back-end services, and Azure DevOps for continuous integration and delivery.</p>
+                <p id="paragraph5">Amahle's transition from an intern to a full-fledged Software Engineer at LexisNexis was seamless. His critical thinking, creativity, and effective communication skills allowed him to thrive in this dynamic environment. He continued to push the boundaries of innovation, ensuring that the Lexis+ AI platform remained at the forefront of legal technology.</p>
+                <img src="https://via.placeholder.com/800x300" alt="Coding" class="story-img">
+                <p id="paragraph6">Despite his demanding professional commitments, Amahle remained dedicated to continuous self-improvement. He successfully completed several online courses on LinkedIn Learning, covering topics such as desktop, web, and mobile development, as well as parallel and concurrent programming. These certifications further solidified his reputation as a well-rounded and knowledgeable software engineer.</p>
+                <p id="paragraph7">Amahle's journey was not just about personal achievements; it was also about giving back to the community. He developed a responsive and visually appealing website for STEM Tutoring, which drew over 150 profile views per month since its launch in August 2021. His work in HTML, CSS, and JavaScript ensured that students had access to impactful web solutions that enhanced their learning experiences.</p>
+                <p id="paragraph8">As Amahle looks to the future, his story continues to inspire those around him. His unwavering dedication to technology, education, and innovation serves as a beacon of hope for aspiring engineers and developers. With a portfolio that showcases his diverse skills and accomplishments, Amahle Lukhaya Jenete is poised to make an even greater impact on the world, one line of code at a time.</p>
+                <p>Connect with Amahle on <a href="https://www.linkedin.com/in/amahle-jenete-1252a5233/" target="_blank">LinkedIn</a> or explore his projects on his <a href="https://jenete.github.io/ljenete" target="_blank">portfolio site</a>.</p>
+            </section>
+            <div class="controls">
+                <img id="speaking-gif" src="./set-diet-sound-bars.gif" alt="Speaking Animation" style="display: none;">
+                <button id="start-btn">🔊 Read aloud</button>
+                <button id="stop-btn">🟥  Stop</button>
+            </div>
+            
+        </main>
+    </div>
+    <script >
+        const speakBtn = document.getElementById('start-btn');
+        const stopBtn = document.getElementById('stop-btn');
+        const speakingGif = document.getElementById('speaking-gif');
+
+        let speech = null;
+        let currentParagraphIndex = 0;
+        const paragraphs = document.querySelectorAll('.story p');
+
+        const highlightParagraph = (index) => {
+            paragraphs.forEach((paragraph, idx) => {
+                if (idx === index) {
+                    paragraph.classList.add('highlight');
+                } else {
+                    paragraph.classList.remove('highlight');
+                }
+            });
+            paragraphs[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        };
+
+        const speakParagraph = (index) => {
+            if (index < paragraphs.length) {
+                let text = paragraphs[index].innerText;
+                speech = new SpeechSynthesisUtterance(text);
+                speech.lang = 'en-US';
+                speech.rate = 1;
+                speech.pitch = 1;
+                speech.volume = 1;
+
+                speech.onstart = () => {
+                    speakingGif.style.display = 'block';
+                    highlightParagraph(index);
+                };
+
+                speech.onend = () => {
+                    speakingGif.style.display = 'none';
+                    highlightParagraph(index + 1);
+                    speakParagraph(index + 1);
+                };
+
+                window.speechSynthesis.speak(speech);
+            }
+        };
+
+        speakBtn.addEventListener('click', () => {
+            if (speechSynthesis.speaking) {
+                return;
+            }
+
+            currentParagraphIndex = 0;
+            highlightParagraph(currentParagraphIndex);
+            speakParagraph(currentParagraphIndex);
+        });
+
+        // pauseBtn.addEventListener('click', () => {
+        //     if (speechSynthesis.speaking && !speechSynthesis.paused) {
+        //         window.speechSynthesis.pause();
+        //         speakingGif.style.display = 'none';
+        //     }
+        // });
+
+        // resumeBtn.addEventListener('click', () => {
+        //     if (speechSynthesis.paused) {
+        //         window.speechSynthesis.resume();
+        //         speakingGif.style.display = 'block';
+        //     }
+        // });
+
+        stopBtn.addEventListener('click', () => {
+            if (speechSynthesis.speaking) {
+                window.speechSynthesis.cancel();
+                speakingGif.style.display = 'none';
+                paragraphs.forEach(paragraph => paragraph.classList.remove('highlight'));
+            }
+        });
+
+    </script>
+</body>
+</html>
