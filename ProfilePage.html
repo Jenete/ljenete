@@ -6,9 +6,12 @@
   <style>
     body {
       font-family: Arial, sans-seri f;
+      font-size: 18px;
       margin: 0;
       padding: 0;
-      background-color: #f1f1f1;
+      background-color: #e0f0f7;
+      scroll-behavior: smooth;
+      transition:cubic-bezier(1, 0, 0, 1);
     }
     
     #profile-container {
@@ -26,6 +29,19 @@
       border-radius: 50%;
       margin: 0 auto 20px;
       display: block;
+      box-shadow: 3px 3px 4px 3px gray;
+    }
+    /* #profile-image:hover{
+      transform: scale(1.8);
+      z-index: 1;
+      box-shadow: 6px 6px 7px 6px rgb(87, 85, 85);
+    } */
+
+    #profile-image:hover{
+      transform: scale(1.8) translateY(60px);
+      z-index: 1;
+      box-shadow: 6px 6px 7px 6px rgb(87, 85, 85);
+      
     }
     
     #profile-name {
@@ -38,6 +54,7 @@
       text-align: center;
       color: #888;
       margin-bottom: 20px;
+      text-shadow: 1px 1px 1px rgb(230, 240, 240);
     }
     
     .social-links {
@@ -86,10 +103,12 @@
         background-position: 100% 100%;
       }
     }
+
     
     /* Contact Section */
     #contact-section {
-      background-color: #f9f9f9;
+      background-color: #8a8484;
+      color: white;
       padding: 40px;
       margin-top: 20px;
       border-radius: 5px;
@@ -99,15 +118,19 @@
     #contact-heading {
       font-size: 16px;
       margin-bottom: 20px;
+
     }
     
     .contact-info {
       margin-bottom: 10px;
+      margin-top: 8rem;
+      margin-bottom: 8rem;
     }
     
     /* About Section */
     #about-section {
-      margin-top: 20px;
+      margin-top: 8rem;
+      margin-bottom: 8rem;
       text-align: center;
     }
     
@@ -121,15 +144,25 @@
       overflow-x: auto;
       margin-bottom: 20px;
     }
+    .project-container:hover {
+      transform: scale(1.2);
+      transform: translate3d(20px);
+    }
     
     .project-card {
       flex: 0 0 auto;
       width: 300px;
       margin-right: 20px;
+      margin: 5px;
       padding: 20px;
       border-radius: 5px;
       background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 2px 2px 3px 2px gray;
+    }
+    .project-card:hover{
+      box-shadow: 6px 6px 7px 6px rgb(38, 36, 36);
+      transform: translateX(20px);
+      transform: translateY(-10px);
     }
     
     .project-card img {
@@ -158,7 +191,15 @@
     }
 
     #cover-letter p {
-    margin-bottom: 10px;
+      margin: 15px;
+    }
+
+    #cover-letter p:hover {
+      margin-bottom: 10px;
+      transform: scale(1.1);
+      background-color: white;
+      padding: 10px;
+      text-shadow: 1px 1px 1px gray;
     }
 
     #cover-letter a {
@@ -201,6 +242,14 @@
       text-align: center;
       padding: 20px;
       font-size: 14px;
+    }
+    .horizontal-line{
+      margin: 10px;
+      margin-top: 40px;
+      margin-bottom: 60px;
+      border-radius: 5px;
+      box-shadow: 5px 10px 20px rgb(70, 157, 167);
+      opacity: 80%;
     }
 
     @media (max-width: 600px) {
@@ -252,7 +301,7 @@
   <div id="profile-container">
     <a href="./IMG_20191011_155001.jpg"><img id="profile-image" src="./IMG_20191011_155001.jpg" alt="Profile Image"></a>
     <h1 id="profile-name">Lukhaya A. Jenete</h1>
-    <p id="profile-description">Software Developer | Tutor | Pro Math Alumni</p>
+    <p id="profile-description">Software Engineer | Tutor | Pro Math Alumni</p>
     <div class="social-links">
       <a class="social-link" href="#"><i class="fab fa-github"></i></a>
       <a class="social-link" href="https://wa.me/+27735534588"><i class="fab fa-whatsapp"></i></a>
@@ -312,65 +361,58 @@
 
 
     <br>
-    <hr>
+    <div class="horizontal-line">___</div>
     <!-- Navigation -->
     <div class="profile-navigation">
         <p>Go to: </p>
         <a href="#about-section">Who am I</a>
-        <a href="#education-section">Education</a>
-        <a href="#skills-section">Skills</a>
         <a href="#contact-section">Contact</a>
         <a href="#projects-section">Projects</a>
-        <a href="https://1drv.ms/b/s!Ajs77XLcMk7CheUxykxi6mP1cMBaHA?e=FAPKbd" target="_blank">View CV</a>
+        <a href="https://1drv.ms/b/s!Ajs77XLcMk7CnIoMCFq_wR43cDAh7g?e=wlphx0" target="_blank">CV</a>
       </div>
       <br>
-    <!-- Contact Section -->
-    <div id="contact-section">
-      <h2 id="contact-heading">Contact</h2>
-      <div class="contact-info">
-        <a  href="mailto:amahlejenete@gmail.com"><i class="fas fa-envelope"></i><p>amahlejenete@gmail.com</p></a>
-        <a  href="tel:+27735534588"><i class="fas fa-phone"></i><p>Phone: 0735534588</p></a>
-      
-      </div>
-    </div>
-    <br><br>
+    
     <!-- About Section -->
     <div id="about-section">
       <h2 id="about-heading">About</h2>
       <div id="cover-letter">
         <i>Welcome to my profile!</i>
         <p>My name is Lukhaya Amahle Jenete, and I'm excited to share my skills and experiences with you.</p>
-        <hr>
+        <div class="horizontal-line">___</div>
     
         <h3>Recent Activities</h3>
         <p>I've actively engaged in various extracurricular pursuits, including contributing to programming, participating in alumni activities at Kutlwanong Pro Maths Centre, and serving as a tutor in programs like Learn Through Science and STEM HUB Tutoring.</p>
-        <hr>
+        <div class="horizontal-line">___</div>
     
         <h3 id="skills-section">Skills and Experience</h3>
-        <p>My journey includes roles with the Department of Computer Science (2021) and the Department of Information Systems (2022) at UCT. With 2 years of mobile development and 3 years of website development experience, I've cultivated the ability to craft exceptional digital experiences. I'm proficient in frameworks such as Java, Kotlin, Flutter, and Dart, having created desktop and mobile apps that demonstrate my prowess in graphical user interfaces, data science, and machine learning.</p>
-        
-        <p>I'm particularly proud of developing a responsive and visually appealing website for STEM Tutoring, consistently drawing over 150 profile views per month since August 2021. My expertise in HTML, CSS, and JavaScript ensures impactful web solutions that leave a lasting impression.</p>
-        <hr>
+        <p>Currently, I am an Aspire Graduate Software Engineer at LexisNexis UK, where I work on the innovative Lexis+ AI project. This role has provided me with invaluable experience in leveraging advanced technologies to develop cutting-edge legal tech solutions.</p>
+      
+        <p>My journey includes roles with the Department of Computer Science (2021) and the Department of Information Systems (2022) at UCT. With 2 years of mobile development and 3 years of web development experience, I've honed my ability to craft exceptional digital experiences. I am proficient in frameworks and languages such as Java, Kotlin, Flutter, and Dart, having developed both desktop and mobile applications that showcase my skills in graphical user interfaces, data science, and machine learning.</p>
+
+
+        <p>One of my standout projects is the development of a responsive and visually appealing website for STEM Tutoring, which has consistently drawn over 150 profile views per month since August 2021. My expertise in HTML, CSS, and JavaScript ensures impactful web solutions that leave a lasting impression.</p>
+
+        <div class="horizontal-line">___</div>
+
     
         <h3>Tutoring Experience</h3>
         <p>Beyond my technical skills, I've garnered 4 years of tutoring experience in information systems and computer science. Collaborating closely with educators and teaching assistants, I've contributed to marking, invigilating, and providing guidance to students. I find joy in aiding individuals with debugging and offering constructive feedback to foster their growth.</p>
-        <hr>
+        <div class="horizontal-line">___</div>
     
         <h3 id="education-section">Education</h3>
         <p>Currently pursuing a BSc in Computer Science and Computer Engineering at the University of Cape Town, I'm set to graduate this year. The fusion of my academic pursuits and practical experiences equips me with a robust foundation to tackle intricate challenges in the field.</p>
-        <hr>
+        <div class="horizontal-line">___</div>
     
-        <h3>Contact Information</h3>
-        <p>Thank you for exploring my profile and cover letter. You're welcome to contact me:</p>
+        
         <div class="contact-info">
+          <h3>Contact Information</h3>
+        <p>Thank you for exploring my profile and cover letter. You're welcome to contact me:</p>
           <p>Phone: 0735534588</p>
           <p>Email: amahlejenete@gmail.com</p>
           <p>LinkedIn: <a href="https://www.linkedin.com/in/amahle-jenete-1252a5233/">amahle-jenete-1252a5233</a></p>
         </div>
         <br>
-        <p>Looking forward to connecting with you!</p>
-        <p>Best regards,</p>
-        <p>Lukhaya Amahle Jenete</p>
+        
       </div>
     </div>
     
@@ -402,6 +444,16 @@
   
   <!-- Responsive Footer -->
   <footer class="footer">
+    <!-- Contact Section -->
+    <div id="contact-section">
+      <h2 id="contact-heading">Contact</h2>
+      <div class="contact-info">
+        <a  href="mailto:amahlejenete@gmail.com"><i class="fas fa-envelope"></i><p>amahlejenete@gmail.com</p></a>
+        <a  href="tel:+27735534588"><i class="fas fa-phone"></i><p>Phone: 0735534588</p></a>
+      
+      </div>
+    </div>
+    <br><br>
     &copy; 2023 Lukhaya Jenete. All rights reserved.
   </footer>
 
